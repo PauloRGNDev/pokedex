@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  section.pokedex
+    img.pokedex(src='/images/Pokedex.png')
+    input(type="text")
+    section.display
+      section.infos 
+        p.name
+        p.number
+      img.pokemon

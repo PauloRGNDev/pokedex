@@ -1,0 +1,30 @@
+h1{
+    margin:0 0 0 14svw;
+    font-size: 70px;
+}
+
+section.pokedex{
+    position:absolute;
+    left: 3svw;
+    bottom: 30px;
+    width: 30svw;
+    height: 67vh;
+    input{
+        position: absolute;
+        left: 50px;
+        top: 5px;
+        width: 110px;
+        height: calc(67svh / 28);
+        border-radius: 6px;
+        outline: none;
+        appearance: none;
+        font-size: 1.6rem;
+        :hover{
+            appearance: none;
+        }
+    }
+
+    img.pokedex{
+        width: 200px;
+    }
+}
