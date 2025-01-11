@@ -6,7 +6,12 @@ function capitalizeFirstLetter(text) {
 async function getPokemon(pokemonName){
     pokemonName = pokemonName.toLowerCase();
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-    const dt = response.data;
+    consolee.log(response)
+    if(response == undefined){
+        response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`);
+        console.log(response)
+    }
+    dt = response.data;
     return dt;
 }
 
@@ -35,14 +40,3 @@ searchField.addEventListener('change', async (e) => {
         pokeName.textContent = e.target.value == '' ?"" : "POKEMON INVÁLIDO, DIGITE UM NOME VÁLIDO";
     }
 })
-// document.addEventListener('DOMContentLoaded', (e) => {
-//     console.log('hello')
-//     const pokeName = document.querySelector('.pokedex .name');
-//     const pokeNumber = document.querySelector('.pokedex .number');
-//     const pokeImg = document.querySelector('img .pokemon');
-//     pokeName.textContent = pokemon.species.name;
-//     pokeNumber.textContent = pokemon.id;
-//     console.log(pokemon.species.name)
-//     console.log(pokemon.id)
-//     pokeImg.setAttribute('src', `${pokemon.sprites.front_default}`)
-// })
