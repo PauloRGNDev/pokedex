@@ -6,10 +6,9 @@ function capitalizeFirstLetter(text) {
 async function getPokemon(pokemonName){
     pokemonName = pokemonName.toLowerCase();
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-    consolee.log(response)
+    console.log(response)
     if(response == undefined){
         response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`);
-        console.log(response)
     }
     dt = response.data;
     return dt;
