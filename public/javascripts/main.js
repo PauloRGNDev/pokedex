@@ -2,31 +2,44 @@ function capitalizeFirstLetter(text) {
     if (!text) return ''; // Verifica se o texto não está vazio
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
-console.log('hello')
 
+  //Pokemons que não tem seus dados acessíveis pela URL comum
+const pokemonExceptions = ['aegislash']
 let response;
 async function getPokemon(pokemonName){
-    console.log(response)
+    const pokemonData = {};
     try{
         pokemonName = pokemonName.toLowerCase();
-        response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-        data = response.data;
-        console.log('aff')
-        return data;
-        console.log('aff')
-        console.log(response)
+        if(!pokemonExceptions.includes(pokemonName)){
+            response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+            const data = response.data;
+            pokemonData.name = data.species.name
+            pokemonData.image = data.sprites.front_default
+            pokemonData.pokedexNumber = data.id
+        } else{
+            //url for pokemons where has infos in an alternative version
+            response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`);
+            const data = response.data;
+            const variantVersion = await axios.get(data.varieties[0].pokemon.url);
+            const variantData = variantVersion.data;
+            pokemonData.name = data.name;
+            pokemonData.image = variantData.sprites.front_default;
+            pokemonData.pokedexNumber = data.id;
+        }
+        return pokemonData;
     } catch(err){
-        console.log('hello')
+        console.log(err)
     }
+
 }
 
 function fillPokemonInfos(pokemon){
     const pokeName = document.querySelector('.pokedex .name');
     const pokeNumber = document.querySelector('.pokedex .number');
     const pokeImg = document.querySelector('img.pokemon');
-    pokeName.textContent = capitalizeFirstLetter(pokemon.species.name);
-    pokeNumber.textContent = `Nº ${pokemon.id}`;
-    pokeImg.setAttribute('src', `${pokemon.sprites.front_default}`)
+    pokeName.textContent = capitalizeFirstLetter(pokemon.name);
+    pokeNumber.textContent = `Nº ${pokemon.pokedexNumber}`;
+    pokeImg.setAttribute('src', `${pokemon.image}`)
 }
 
 const searchField = document.querySelector('input')
