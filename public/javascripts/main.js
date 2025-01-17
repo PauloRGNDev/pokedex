@@ -2,16 +2,22 @@ function capitalizeFirstLetter(text) {
     if (!text) return ''; // Verifica se o texto não está vazio
     return text.charAt(0).toUpperCase() + text.slice(1);
   }
+console.log('hello')
 
+let response;
 async function getPokemon(pokemonName){
-    pokemonName = pokemonName.toLowerCase();
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
     console.log(response)
-    if(response == undefined){
-        response = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}`);
+    try{
+        pokemonName = pokemonName.toLowerCase();
+        response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
+        data = response.data;
+        console.log('aff')
+        return data;
+        console.log('aff')
+        console.log(response)
+    } catch(err){
+        console.log('hello')
     }
-    dt = response.data;
-    return dt;
 }
 
 function fillPokemonInfos(pokemon){
