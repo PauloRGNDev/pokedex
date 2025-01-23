@@ -16,7 +16,7 @@ section.pokedex{
         z-index:1;
         left: 126px;
         top: 30px;
-        height: calc(67svh / 12);
+        height: calc(51svh / 12);
         border-radius: 6px;
         outline: none;
         :hover{
