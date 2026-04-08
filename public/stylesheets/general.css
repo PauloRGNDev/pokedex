@@ -1,8 +1,8 @@
-@import url('index.css');
-@import url('./mobile/index.css') (max-width:500px);
+@import url("index.css");
+@import url("/stylesheets/mobile/index.css") (max-width: 500px);
 
-body{
-    margin: 0px;
-    background-color: #020015;
-    color:white;
+body {
+  margin: 0px;
+  background-color: #020015;
+  color: white;
 }

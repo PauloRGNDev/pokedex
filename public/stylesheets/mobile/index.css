@@ -1,30 +1,42 @@
-h1{
-    margin:0 0 0 14svw;
-    font-size: 70px;
+h1 {
+  margin-left: 12svw;
+  font-size: 8svw;
 }
 
-section.pokedex{
-    position:absolute;
-    left: 3svw;
-    bottom: 30px;
-    width: 30svw;
-    height: 67vh;
-    input{
-        position: absolute;
-        left: 50px;
-        top: 5px;
-        width: 110px;
-        height: calc(67svh / 28);
-        border-radius: 6px;
-        outline: none;
-        appearance: none;
-        font-size: 1.6rem;
-        :hover{
-            appearance: none;
-        }
+section.pokedex {
+  position: absolute;
+  left: 8%;
+  top: 16%;
+  width: 46.5svw;
+  height: 27.49vh;
+  input {
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    width: 110px;
+    height: calc(67svh / 28);
+    border-radius: 6px;
+    outline: none;
+    appearance: none;
+    font-size: 0.7rem;
+    :hover {
+      appearance: none;
     }
+  }
+  section.display {
+    position: absolute;
+    top: 4.5svh;
+    left: 8svw;
+    width: 65%;
+    height: 37%;
+    img.pokemon {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
 
-    img.pokedex{
-        width: 200px;
-    }
+  img.pokedex {
+    width: 200px;
+  }
 }
