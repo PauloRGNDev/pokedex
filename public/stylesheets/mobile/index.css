@@ -1,12 +1,12 @@
 h1 {
   margin-left: 12svw;
-  font-size: 8svw;
+  font-size: 4rem;
 }
 
 section.pokedex {
   position: absolute;
-  left: 8%;
-  top: 16%;
+  left: 25%;
+  top: 30%;
   width: 46.5svw;
   height: 27.49vh;
   input {
@@ -31,8 +31,17 @@ section.pokedex {
     height: 37%;
     img.pokemon {
       position: absolute;
-      top: 0px;
-      left: 0px;
+      top: 10%;
+      left: 10%;
+    }
+    section.infos {
+      left: 0;
+      top: 0;
+      width: 100%;
+      font-size: 0.75rem;
+      p {
+        margin: 0px;
+      }
     }
   }
 
